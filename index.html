@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darshan Nagpal - Portfolio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <style>
+        .typewriter p {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            min-width: 250px; /* Set a minimum width to prevent shrinking */
+            position: relative;
+        }
+
+        .typewriter p::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            border-right: .15em solid orange;
+            animation: blink-caret .75s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: orange; }
+        }
+    </style>
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-5">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+            <!-- <a class="navbar-brand" href="#">Darshan Nagpal</a> -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="hero">
+            <h1 class="display-4 animate__animated animate__fadeInDown">Darshan Nagpal</h1>
+            <div class="typewriter">
+                <p class="lead" id="typewriter-text"></p>
+            </div>
+        </div>
+    </header>
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="text-center animate__animated animate__fadeIn">About Me</h2>
+            <p class="text-center animate__animated animate__fadeIn">Hello! I'm Darshan Nagpal, a passionate software developer and web designer. I love creating beautiful and functional websites and applications.</p>
+        </div>
+    </section>
+    <section id="projects" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center animate__animated animate__fadeIn">Projects</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-4 animate__animated animate__zoomIn">
+                        <div class="card-body">
+                            <h3 class="card-title">Project 1</h3>
+                            <p class="card-text">Description of project 1.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 animate__animated animate__zoomIn">
+                        <div class="card-body">
+                            <h3 class="card-title">Project 2</h3>
+                            <p class="card-text">Description of project 2.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card mb-4 animate__animated animate__zoomIn">
+                        <div class="card-body">
+                            <h3 class="card-title">Project 3</h3>
+                            <p class="card-text">Description of project 3.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="contact" class="py-5">
+        <div class="container">
+            <h2 class="text-center animate__animated animate__fadeIn">Contact</h2>
+            <p class="text-center animate__animated animate__fadeIn">If you have any questions or want to get in touch, feel free to contact me!</p>
+            <!-- Success message -->
+            <div id="success-message" class="alert alert-success" style="display: none;">
+                Your message has been sent successfully!
+            </div>
+            <form action="/send-email" method="post" class="mx-auto animate__animated animate__fadeIn" style="max-width: 600px;">
+                <div class="form-group">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="4" class="form-control" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </section>
+    <footer class="bg-primary text-white text-center py-3">
+        <p>&copy; 2025 Darshan Nagpal. All rights reserved.</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Show success message if redirected with success=true
+        if (window.location.search.includes('success=true')) {
+            document.getElementById('success-message').style.display = 'block';
+            // Scroll to the contact section
+            document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Typewriter effect
+        const textArray = ["Software Developer", "Web Designer"];
+        let textIndex = 0;
+        let charIndex = 0;
+        const typeSpeed = 100;
+        const deleteSpeed = 50;
+        const delayBetweenTexts = 2000;
+        const typewriterText = document.getElementById('typewriter-text');
+
+        function type() {
+            if (charIndex < textArray[textIndex].length) {
+                typewriterText.textContent += textArray[textIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typeSpeed);
+            } else {
+                setTimeout(deleteText, delayBetweenTexts);
+            }
+        }
+
+        function deleteText() {
+            if (charIndex > 0) {
+                typewriterText.textContent = textArray[textIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(deleteText, deleteSpeed);
+            } else {
+                textIndex = (textIndex + 1) % textArray.length;
+                setTimeout(type, typeSpeed);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            type();
+        });
+    </script>
+</body>
+</html>
