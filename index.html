@@ -7,7 +7,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allura&display=swap" rel="stylesheet">
     <style>
+        html {
+  scroll-behavior: smooth;
+}
         .typewriter p {
             display: inline-block;
             overflow: hidden;
@@ -17,6 +24,20 @@
             min-width: 250px; /* Set a minimum width to prevent shrinking */
             position: relative;
         }
+
+        .alex-brush-regular {
+  font-family: "Alex Brush", cursive;
+  font-weight: 800;
+  font-style: bold;
+}
+
+.allura-regular {
+  font-family: "Allura", cursive;
+  font-weight: 600;
+  font-style: bold;
+}
+
+
 
         .typewriter p::after {
             content: '';
@@ -30,11 +51,42 @@
             from, to { border-color: transparent }
             50% { border-color: orange; }
         }
+
+
+        @keyframes rotateClockwise {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  @keyframes rotateCounterClockwise {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-360deg); }
+  }
+
+  svg circle {
+    transform-box: fill-box;
+    transform-origin: 50% 50%;
+  }
+
+  #ring1 {
+    stroke-dasharray: 300 30;
+    animation: rotateClockwise 10s linear infinite;
+  }
+
+  #ring2 {
+    stroke-dasharray: 200 15;
+    animation: rotateCounterClockwise 5s linear infinite;
+  }
+
+  #ring3 {
+    stroke-dasharray: 150 20;
+    animation: rotateClockwise 7s linear infinite;
+  }
     </style>
 </head>
-<body>
-    <header class="bg-primary text-white text-center py-5">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+<body id="home">
+    <header style="background-color:#2F484C;" class="text-white text-center py-5">
+        <nav style="background-color: #2C3E3F;" class="navbar navbar-expand-lg navbar-dark fixed-top">
             <!-- <a class="navbar-brand" href="#">Darshan Nagpal</a> -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -57,21 +109,26 @@
             </div>
         </nav>
         <div class="hero">
-            <h1 class="display-4 animate__animated animate__fadeInDown">Darshan Nagpal</h1>
-            <div class="typewriter">
+            <h1 class="display-4 animate__animated animate__fadeInDown alex-brush-regular">Darshan Nagpal</h1>
+            <div class="typewriter alex-brush-regular">
                 <p class="lead" id="typewriter-text"></p>
             </div>
+            <svg class="mt-5" width="200" height="200" viewBox="0 0 200 200">
+                <circle id="ring1" cx="100" cy="100" r="80" stroke="orange" stroke-width="4" fill="none"/>
+                <circle id="ring2" cx="100" cy="100" r="65" stroke="cyan" stroke-width="4" fill="none"/>
+                <circle id="ring3" cx="100" cy="100" r="50" stroke="lime" stroke-width="4" fill="none"/>
+              </svg>
         </div>
     </header>
     <section id="about" class="py-5">
         <div class="container">
-            <h2 class="text-center animate__animated animate__fadeIn">About Me</h2>
+            <h1 class="text-center animate__animated animate__fadeIn allura-regular">About Me</h1>
             <p class="text-center animate__animated animate__fadeIn">Hello! I'm Darshan Nagpal, a passionate software developer and web designer. I love creating beautiful and functional websites and applications.</p>
         </div>
     </section>
     <section id="projects" class="py-5 bg-light">
         <div class="container">
-            <h2 class="text-center animate__animated animate__fadeIn">Projects</h2>
+            <h1 class="text-center animate__animated animate__fadeIn allura-regular">Projects</h1>
             <div class="row">
                 <div class="col-md-4">
                     <div class="card mb-4 animate__animated animate__zoomIn">
@@ -102,7 +159,7 @@
     </section>
     <section id="contact" class="py-5">
         <div class="container">
-            <h2 class="text-center animate__animated animate__fadeIn">Contact</h2>
+            <h1 class="text-center animate__animated animate__fadeIn allura-regular">Contact</h1>
             <p class="text-center animate__animated animate__fadeIn">If you have any questions or want to get in touch, feel free to contact me!</p>
             <!-- Success message -->
             <div id="success-message" class="alert alert-success" style="display: none;">
@@ -125,7 +182,7 @@
             </form>
         </div>
     </section>
-    <footer class="bg-primary text-white text-center py-3">
+    <footer style="background-color: #30494C;" class="text-white text-center py-3">
         <p>&copy; 2025 Darshan Nagpal. All rights reserved.</p>
     </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
